@@ -1,0 +1,11 @@
+<%= form_with model: place, local:true do |f| %>
+  <h5>場所</h5>
+  <%= f.text_field :area, class: "" %>
+  <%= f.submit '投稿', class: "btn btn-success" %>
+<% end %>
+
+<% places.each do |place| %>
+ <%= place.area  %>
+ <%= link_to "変更", edit_place_path(place.id),method: :get %>
+ <%= link_to "削除", place_path(place.id),method: :delete %>
+<% end %>

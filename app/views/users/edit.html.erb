@@ -1,2 +1,7 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= form_with model: @user, local:true do |f| %>
+  <h5>名前</h5>
+  <%= f.text_field :name, class: "" %>
+  <h5>自己紹介</h5>
+  <%= f.text_area :profile, class: "" %>
+  <%= f.submit 'Create Book', class: "btn btn-success" %>
+<% end %>

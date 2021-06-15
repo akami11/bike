@@ -1,0 +1,9 @@
+<%= form_with model: article, local:true do |f| %>
+  <h5>題名</h5>
+  <%= f.text_field :title, class: "" %>
+  <h5>本文</h5>
+  <%= f.text_area :body, class: "" %>
+  <h5>場所</h5>
+  <%= f.collection_select :place_id, places, :id, :area, { prompt: "選択してください"}, class: "form-control col-md-6 col-9 offset-1", :required => true%>
+  <%= f.submit 'Create Book', class: "btn btn-success" %>
+<% end %>
