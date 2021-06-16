@@ -7,4 +7,13 @@ class Article < ApplicationRecord
   def like_by?(user)
     likes.where(user_id: user.id).exists?
   end
+  # 画像投稿
+  mount_uploaders :images, ImageUploader
+  serialize :images, JSON
+  
+  # 動画投稿
+  mount_uploader :video, VideoUploader
+  # タグ機能の追加
+  acts_as_taggable
+  acts_as_taggable_on :skills, :interests
 end

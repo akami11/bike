@@ -3,5 +3,7 @@
   <%= f.text_field :name, class: "" %>
   <h5>自己紹介</h5>
   <%= f.text_area :profile, class: "" %>
+  <h5>画像</h5>
+  <%= f.file_field :avatar %>
   <%= f.submit 'Create Book', class: "btn btn-success" %>
 <% end %>

@@ -1,9 +1,17 @@
 <%= form_with model: article, local:true do |f| %>
   <h5>題名</h5>
-  <%= f.text_field :title, class: "" %>
+  <%= f.text_field :title, class: "form-control" %>
   <h5>本文</h5>
-  <%= f.text_area :body, class: "" %>
+  <%= f.text_area :body, class: "form-control" %>
   <h5>場所</h5>
   <%= f.collection_select :place_id, places, :id, :area, { prompt: "選択してください"}, class: "form-control col-md-6 col-9 offset-1", :required => true%>
+  <h5>画像</h5>
+  <%= f.file_field :images, multiple: true ,class: "form-control"%>
+  <h5>動画</h5>
+  <%= f.file_field :video, :accept => 'video/*',class: "form-control" %>
+  <h5>タグ</h5>
+  <%= f.text_field :tag_list, value: article.tag_list.join(','),class: "form-control" %>
+  
+  
   <%= f.submit 'Create Book', class: "btn btn-success" %>
 <% end %>

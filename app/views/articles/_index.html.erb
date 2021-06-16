@@ -5,6 +5,9 @@
   <td><%= article.title %></td>
   <td><%= article.body %></td>
   <td><%= article.place.area %></td>
+  <% if article.images? %>
+    <td><%= image_tag article.images[0].url %></td>
+  <% end %>
   <td><%= link_to "詳細", article_path(article.id),method: :get %></td>
   <td><%= link_to "編集", edit_article_path(article.id),method: :get %></td>
   <td><%= link_to "削除", article_path(article.id),method: :delete %></td>

@@ -2,6 +2,22 @@
 <%= @article.title %>
 <h5>内容</h5>
 <%= @article.body %>
+<h5>写真</h5>
+<% @article.images.each do |image| %>
+<%= image_tag image.to_s %>
+<% end %>
+
+
+<%= video_tag(@article.video.to_s, :controls => true, :size => 20*20)  %>
+
+<% if @tags.present? %>
+  <% @tags.each do |tag| %>
+    <%= "#{tag.name}(#{tag.taggings_count})" %>
+  <% end %>
+<% else %>
+  <p>登録されているタグはありません</p>
+<% end %>
+
 
 <% if @article.like_by?(current_user) %>
   <p>

@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
 
   def show
     @comment = Comment.new
+    @tags = @article.tag_counts_on(:tags) 
   end
   
   def update
@@ -48,7 +49,7 @@ class ArticlesController < ApplicationController
   private
   
   def article_params
-    params.require(:article).permit(:title, :body, :user_id, :place_id) 
+    params.require(:article).permit(:title, :body, :user_id, :place_id, :video, :tag_list, {images: []}) 
   end
   
   def ensure_article

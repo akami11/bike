@@ -2,4 +2,11 @@
 <%= @user.name %>
 <h5>自己紹介</h5>
 <%= @user.profile %>
+<h5>画像</h5>
+<% if @user.avatar? %>
+  <p>
+    <strong>Avatar:</strong>
+    <%= image_tag @user.avatar.url %>
+  </p>
+<% end %>
 <%= link_to "edit ", edit_user_path(@user.id),method: :get%>
