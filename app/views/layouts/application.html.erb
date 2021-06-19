@@ -5,8 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= include_gon %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/css/swiper.min.css">
+
   </head>
 
   <body>
@@ -50,6 +53,42 @@
           </div>
       </div>
     </header>
-    <%= yield %>
+　　<div class ="container">
+      <%= yield %>
+    </div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFGVkAh2D3gz8tEVUQIVghPmAmQCYYiY8&callback=initMap" async defer></script>
+      <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+      <script src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", type:"text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/js/swiper.min.js"></script>
+      <script>
+        var mainSlider = new Swiper('.slider', {
+          centeredSlides: true,
+          loop:true,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }
+        });
+        
+        //サムネイル
+        var Thumbnail = new Swiper('.thumbnail', {
+          slidesPerView: 5,
+          loop:true,
+          centeredSlides:true,
+          slideToClickedSlide: true,
+        });
+        
+        // スライド遷移時にイベントが発生する slideChange というAPIを使用
+        // スライダーをスライドした時にサムネイルを移動させる
+        mainSlider.on('slideChange', () => {
+            // realIndex は現在activeになっているスライドの番号が入っている
+            Thumbnail.slideToLoop(mainSlider.realIndex);
+        });
+        // サムネイルをスライドした時にメインスライドを連動させる(上記と逆)
+          Thumbnail.on('slideChange', () => {
+            mainSlider.slideToLoop(Thumbnail.realIndex);
+        });
+      </script>
+    
   </body>
 </html>

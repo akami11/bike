@@ -16,4 +16,7 @@ class Article < ApplicationRecord
   # タグ機能の追加
   acts_as_taggable
   acts_as_taggable_on :skills, :interests
+  # gooogleMap
+  has_one :spot, dependent: :destroy
+  accepts_nested_attributes_for :spot
 end

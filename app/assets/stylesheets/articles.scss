@@ -1,3 +1,43 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.article{
+  &__index{
+    img{
+      width:  250px;       /* ※縦横を同値に */
+      height: 150px;       /* ※縦横を同値に */
+      border-radius: 30px;  /* 角丸半径を50%にする(=円形にする) */
+      display: inline-block;
+      object-fit: cover;
+    }
+  }
+  &__abc{
+    position: relative;
+  }
+  &__text{
+    position: absolute;
+    bottom: 1px;
+    right: 10px;
+  }
+  &__like{
+    position: absolute;
+    bottom: 1px;
+    left: 10px;
+  }
+  &__comment{
+    margin-bottom: 30px;
+  }
+  &__avatar{
+    img{
+      width:  100px;       /* ※縦横を同値に */
+      height: 100px;       /* ※縦横を同値に */
+      border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+      display: inline-block;
+      object-fit: cover;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+  }
+}

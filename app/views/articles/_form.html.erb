@@ -1,4 +1,4 @@
-<%= form_with model: article, local:true do |f| %>
+<%= form_with model: article, local:true,multipart: true do |f| %>
   <h5>題名</h5>
   <%= f.text_field :title, class: "form-control" %>
   <h5>本文</h5>
@@ -6,12 +6,22 @@
   <h5>場所</h5>
   <%= f.collection_select :place_id, places, :id, :area, { prompt: "選択してください"}, class: "form-control col-md-6 col-9 offset-1", :required => true%>
   <h5>画像</h5>
-  <%= f.file_field :images, multiple: true ,class: "form-control"%>
+  <%= f.file_field :images, multiple: true ,class: ""%>
   <h5>動画</h5>
-  <%= f.file_field :video, :accept => 'video/*',class: "form-control" %>
-  <h5>タグ</h5>
-  <%= f.text_field :tag_list, value: article.tag_list.join(','),class: "form-control" %>
-  
-  
+  <%= f.file_field :video, :accept => 'video/*',class: "" %>
+  <!--<h5>タグ</h5>-->
+  <!--<%= f.text_field :tag_list, value: article.tag_list.join(','),data: {role: "tagsinput"},class: "form-control" %>-->
+
+  <h5>地図</h5>
+    <div class="spot">
+      <%= f.fields_for :spot do |s| %>
+        <%= s.text_field :address,　placeholder: "スポットを入力", id: "address", class: 'spot__text' %>
+      <% end %>
+      <input type= "button" value="検索する" onclick= "codeAddress()"></input>
+      <div class="map" id= "map", style= "height: 320px; width: 640px;"></div>
+    </div>
+
+　　<!--<div id='map'></div>-->
+
   <%= f.submit 'Create Book', class: "btn btn-success" %>
 <% end %>
