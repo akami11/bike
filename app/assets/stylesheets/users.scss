@@ -1,3 +1,18 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user{
+  &__left{
+    img{
+      width:  300px;       /* ※縦横を同値に */
+      height: 300px;       /* ※縦横を同値に */
+      border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+      display: inline-block;
+      object-fit: cover;
+    }
+  }
+  &__right{
+  }
+}

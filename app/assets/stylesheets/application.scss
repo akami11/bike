@@ -14,5 +14,32 @@
  *= require_self
  */
  @import "bootstrap";
+ @import "tagsinput";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ // @import "jquery.tagit";       
+ // @import "tagit.ui-zendesk";
+
+
+.slider{
+   width: 1000px;
+   height: 400px;
+ img{
+   width: 1000px;
+ }
+}
+.thumbnail{
+ width: 1000px;
+ height: 200px;
+ img{
+  width: inherit;
+ }
+}
+
+header{
+  .head__search{
+   form{
+    display: flex;
+   }
+  }
+}

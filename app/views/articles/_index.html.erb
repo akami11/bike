@@ -1,13 +1,36 @@
-<%= link_to "新規", new_article_path,method: :get%>
-<table>
-<% articles.each do |article| %>
-<tr>
-  <td><%= article.title %></td>
-  <td><%= article.body %></td>
-  <td><%= article.place.area %></td>
-  <td><%= link_to "詳細", article_path(article.id),method: :get %></td>
-  <td><%= link_to "編集", edit_article_path(article.id),method: :get %></td>
-  <td><%= link_to "削除", article_path(article.id),method: :delete %></td>
-</tr>cd
+<div class="article__new">
+  <%= link_to "新規", new_article_path,method: :get, class: "btn btn-secondary"%>
+</div>
+
+<%= form_with url: sort_path, method: :get, local: true do |f| %>
+    <%= f.select :updown, options_for_select({"いいねが多い順" => "いいねが多い順", "投稿日が新しい順" => "投稿日が新しい順","投稿日が古い順" => "投稿日が古い順"}), class: "form-control" %>
+    <%= f.button :type => 'submit', class: 'btn btn-default' do%>
+     <i class="fas fa-sort"></i>
+    <% end %>
 <% end %>
-</table>
+
+
+<% articles.each do |article| %>
+  <div class="row article__index">
+      
+    <div class="col-4">
+      <% if article.images? %>
+        <%= link_to article_path(article.id), method: :get do %>
+          <%= image_tag article.images[0].url  %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col article__box">
+      <div class="text-secondary"><%= article.place.area %></div>
+      <h5><%= article.title %></h5>
+      <%= article.body %>
+      <br>
+      <div class="article__like"><%= article.likes.count %> いいね</div>
+      <div class="article__text"><%= article.created_at.strftime('%Y/%m/%d') %></div>
+      <!--<%= link_to "詳細", article_path(article.id),method: :get %>-->
+      <!--<%= link_to "編集", edit_article_path(article.id),method: :get %>-->
+      <!--<%= link_to "削除", article_path(article.id),method: :delete %>-->
+    </div>
+  </div>
+  <hr>
+<% end %>

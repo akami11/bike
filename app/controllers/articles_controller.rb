@@ -3,18 +3,19 @@ class ArticlesController < ApplicationController
   
   
   def index
-    @articles = Article.all
+    @articles = Article.order(created_at: :desc)
   end
 
   def new
     @article = Article.new
+    @article.build_spot
     @places = Place.all
   end
   
   def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
-    if @article.save!
+    if @article.save
       redirect_to articles_path
     else
      @places = Place.all
@@ -29,6 +30,11 @@ class ArticlesController < ApplicationController
 
   def show
     @comment = Comment.new
+    @tags = @article.tag_counts_on(:tags) 
+    @lat = @article.spot.latitude
+    @lng = @article.spot.longitude
+    gon.lat = @lat
+    gon.lng = @lng
   end
   
   def update
@@ -48,7 +54,7 @@ class ArticlesController < ApplicationController
   private
   
   def article_params
-    params.require(:article).permit(:title, :body, :user_id, :place_id) 
+    params.require(:article).permit(:title, :body, :user_id, :place_id, :video, :tag_list,  {images: []}, spot_attributes: [:address])
   end
   
   def ensure_article

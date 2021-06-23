@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   
   
   def edit
+    if @user == current_user
+      render :edit
+    else
+      redirect_to user_path(params[:id])
+    end
   end
 
   def show
@@ -19,7 +24,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :profile)
+    params.require(:user).permit(:name, :profile, :avatar)
   end
   
   def ensure_user

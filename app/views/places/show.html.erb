@@ -1,0 +1,9 @@
+<div class ="container">
+  <% if @articles.exists? %>
+    <h3><%= @place.area %>の検索結果</h3>
+    <%= render "articles/index", articles: @articles %>
+  <% else %>
+    <h3><%= @place.area %>の検索結果</h3>
+    <h2>見つかりませんでした。検索条件を変更して再度お試しください。</h2>
+  <% end %>
+</div>

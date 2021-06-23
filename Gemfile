@@ -67,3 +67,10 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
+gem 'jquery-ui-rails'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem "gon"
+gem "dotenv-rails"
