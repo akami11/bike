@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :user, optional: true
   has_many :likes,dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
   has_many :comments,dependent: :destroy
   belongs_to :place, optional: true
   
@@ -19,4 +20,9 @@ class Article < ApplicationRecord
   # gooogleMap
   has_one :spot, dependent: :destroy
   accepts_nested_attributes_for :spot
+  
+  validates :title, length: { maximum: 20 }
+  validates :title, presence: true
+  validates :body, presence: true
+  
 end

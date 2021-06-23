@@ -17,6 +17,9 @@
  @import "tagsinput";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ // @import "jquery.tagit";       
+ // @import "tagit.ui-zendesk";
+
 
 .slider{
    width: 1000px;
@@ -31,4 +34,12 @@
  img{
   width: inherit;
  }
+}
+
+header{
+  .head__search{
+   form{
+    display: flex;
+   }
+  }
 }

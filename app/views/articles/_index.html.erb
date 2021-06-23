@@ -1,7 +1,18 @@
-<%= link_to "新規", new_article_path,method: :get%>
+<div class="article__new">
+  <%= link_to "新規", new_article_path,method: :get, class: "btn btn-secondary"%>
+</div>
+
+<%= form_with url: sort_path, method: :get, local: true do |f| %>
+    <%= f.select :updown, options_for_select({"いいねが多い順" => "いいねが多い順", "投稿日が新しい順" => "投稿日が新しい順","投稿日が古い順" => "投稿日が古い順"}), class: "form-control" %>
+    <%= f.button :type => 'submit', class: 'btn btn-default' do%>
+     <i class="fas fa-sort"></i>
+    <% end %>
+<% end %>
+
 
 <% articles.each do |article| %>
   <div class="row article__index">
+      
     <div class="col-4">
       <% if article.images? %>
         <%= link_to article_path(article.id), method: :get do %>
@@ -9,7 +20,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col article__abc">
+    <div class="col article__box">
       <div class="text-secondary"><%= article.place.area %></div>
       <h5><%= article.title %></h5>
       <%= article.body %>

@@ -1,21 +1,27 @@
+<div class ="container">
 <div class="user">
-  <div class="row user__top">
+  <div class="row user__left">
     <div class="col text-center">
       <% if @user.avatar? %>
           <%= image_tag @user.avatar.url %>
       <% end %>
       <br>
-      <%= link_to "編集", edit_user_path(@user.id),method: :get%>
+      <% if @user == current_user %>
+        <%= link_to "編集", edit_user_path(@user.id),method: :get, class: "btn btn-secondary mt-3"%>
+      <% end %>
     </div>
     <div class="col">
-      <h5>ユーザーネーム</h5>
-      <%= @user.name %>
-      <h5>自己紹介</h5>
+      <h5>Name</h5>
+      <h4><%= @user.name %></h4>
+      <br>
+      <h5>Profile</h5>
       <%= @user.profile %>
     </div>
   </div>
   <hr>
-  <h5>投稿記事</h5>
-  <%= render "articles/index", articles: @user.articles %>
- 
+  <div class="article">
+    <h4>投稿記事</h4>
+    <%= render "articles/index", articles: @user.articles %>
+  </div>
+</div>
 </div>

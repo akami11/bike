@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-    before_action :ensure_place, only: [:edit, :update, :destroy]
+    before_action :ensure_place, only: [:show, :edit, :update, :destroy]
   
   
   def index
@@ -11,6 +11,10 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.save
     redirect_to places_path
+  end
+  
+  def show
+    @articles = @place.articles
   end
   
   

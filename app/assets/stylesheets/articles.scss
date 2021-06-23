@@ -4,6 +4,12 @@
 
 
 .article{
+  position: relative;
+  &__new{
+    position: absolute;
+    top: 1px;
+    right: 10px;
+  }
   &__index{
     img{
       width:  250px;       /* ※縦横を同値に */
@@ -13,7 +19,7 @@
       object-fit: cover;
     }
   }
-  &__abc{
+  &__box{
     position: relative;
   }
   &__text{

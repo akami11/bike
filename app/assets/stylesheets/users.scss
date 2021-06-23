@@ -4,7 +4,7 @@
 
 
 .user{
-  &__top{
+  &__left{
     img{
       width:  300px;       /* ※縦横を同値に */
       height: 300px;       /* ※縦横を同値に */
@@ -13,13 +13,6 @@
       object-fit: cover;
     }
   }
- &__under{
-   img{
-      width:  250px;       /* ※縦横を同値に */
-      height: 150px;       /* ※縦横を同値に */
-      border-radius: 30px;  /* 角丸半径を50%にする(=円形にする) */
-      display: inline-block;
-      object-fit: cover;
-   }
- }
+  &__right{
+  }
 }

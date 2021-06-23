@@ -1,2 +1,38 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="home">
+ <div　class="home__text">
+    <h3>走り続ける、まだ見ぬ世界へ</h3>
+    <button type="button" class="btn btn-primary mx-auto d-block" data-toggle="modal" data-target="#exampleModal">
+      場所を選択
+    </button>
+  </div>
+  
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">都道府県で検索</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <% @places.each do |place| %>
+              <%= link_to  place.area , place_path(place.id),method: :get ,class: "mb-1 mr-1"%>
+            <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+</div>
+<hr>
+<div class="container">
+  <h5>最新の投稿</h5>
+    <%= render "articles/index", articles: @articles %>
+</div>
+
