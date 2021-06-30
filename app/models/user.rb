@@ -9,7 +9,18 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_articles, through: :likes, source: :article
   
-  validates :name, length: { maximum: 10 }
+  validates :name, length: { maximum: 50 }
   
+  # carrierwave
   mount_uploader :avatar, AvatarUploader
+  
+  # フォロー機能
+  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :following, through: :follower, source: :followed
+  has_many :followers, through: :followed, source: :follower
+  
+  def follow(other_user)
+    following << other_user
+  end
 end

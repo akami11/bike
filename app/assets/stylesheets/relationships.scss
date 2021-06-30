@@ -1,0 +1,15 @@
+// Place all the styles related to the relationships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follow{
+  img{
+      width:  100px;       /* ※縦横を同値に */
+      height: 100px;       /* ※縦横を同値に */
+      border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+      display: inline-block;
+      object-fit: cover;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+}

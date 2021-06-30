@@ -74,3 +74,4 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem "gon"
 gem "dotenv-rails"
+gem 'faker'
