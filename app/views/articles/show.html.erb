@@ -1,7 +1,11 @@
 <div class ="container">
 <div class="row article__avatar d-flex align-items-center">
   <%= link_to user_path(@article.user.id), method: :get do %>
-    <%= image_tag @article.user.avatar.url %>
+    <% if @article.user.avatar? %>
+      <%= image_tag @article.user.avatar.url %>
+    <% else %>
+      <%= image_tag "sample.jpg" %>
+    <% end %>
   <% end %>
   <h1><%= @article.title %></h1>
 </div>

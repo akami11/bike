@@ -1,24 +1,41 @@
-# README
+# バイクでGO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ツーリングスポット共有サイト
+写真、動画、文章、地図により都道府県別にお気に入りのツーリングスポットを投稿し共有し合う。
 
-Things you may want to cover:
+### サイトテーマ
+ツーリングを楽しくもっと身近なものにする。
 
-* Ruby version
+### テーマを選んだ理由
+自分がツーリング場所を探す際に苦労した経験から、その手間をなくすことでさらなるバイクライフを楽しんでもらいたい為。
+また、コロナ禍における二輪ユーザーの増加や、巣篭もりにおけるストレスの増加を考えた際、ツーリングという手段が時代にマッチしているのではないかと考察
 
-* System dependencies
 
-* Configuration
+### ターゲットユーザ
+全てのバイクユーザー
+- 既存のバイクユーザーにとっては自分のおすすめスポットを共有する事や、お気に入りのバイクを自慢できる場所に。
+- 新規ユーザーに対しては、自身の近場のスポットを検索することで手軽にツーリングを楽しんでもらえるような場所に。
 
-* Database creation
+### 主な利用シーン
+手軽にバイクで走りたいと思ったとき
 
-* Database initialization
 
-* How to run the test suite
+## 開発環境
+- OS：Amazon Linux2
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
+## 使用素材
+- Hatchful(https://hatchful.shopify.com/ja/)
+- O-DAN(https://o-dan.net/ja/)
 
-* Deployment instructions
+## テスト要領
+clone後
+```
+rails db:seed
 
-* ...
+```
+をお願いします

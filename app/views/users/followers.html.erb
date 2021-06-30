@@ -1,0 +1,23 @@
+<div class="follow">
+  <h1>フォロワー一覧</h1>
+<table class="table">
+    <tbody>
+    <% @user.followers.each do |user| %>
+      <tr>
+        <td class="align-middle">
+          <%= link_to user_path(user.id), method: :get do %>
+            <% if user.avatar? %>
+              <%= image_tag user.avatar.url %>
+            <% else %>
+              <%= image_tag "sample.jpg" %>
+            <% end %>
+          <% end %>
+        </td>
+        <td class="align-middle"><%= user.name %></td>
+        <td class="align-middle"><%=  "フォロー数: #{user.follower.count}" %></td>
+        <td class="align-middle"><%=  "フォロワー数: #{user.followed.count}" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

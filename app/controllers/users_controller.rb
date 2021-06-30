@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :ensure_user, only: [:edit, :show, :update]
+  before_action :ensure_user, only: [:edit, :show, :update, :following, :followers]
   
   
   def edit
@@ -20,6 +20,13 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def following
+  end
+  
+  def followers
+  end
+
   
   private
   
